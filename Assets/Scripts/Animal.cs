@@ -6,9 +6,13 @@ public class Animal : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] bool movingRight;
-    [SerializeField] int VidaAnimal;
+    [SerializeField] public int VidaAnimal;
+    [SerializeField] public float tiempoAtras;
+    [SerializeField] contador t;
+    
 
     float minX, maxX;
+    public bool tiempoLento = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,34 @@ public class Animal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(movingRight)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            tiempoLento = tiempoLento ? false : true;
+            lento();
+        }
+
+        if (tiempoLento == true)
+        {
+            
+                tiempoAtras -= Time.deltaTime;
+                if (tiempoAtras <= 0)
+                {
+                    Time.timeScale = 1f;
+                    tiempoLento = false;
+                }
+            
+        }
+
+        void lento()
+        {
+            if (tiempoAtras > 0)
+            {
+                VidaAnimal = 1;
+                Time.timeScale = 0.5f;
+            }
+        }
+
+        if (movingRight)
         {
             Vector2 movimiento = new Vector2(speed * Time.deltaTime, 0);
             transform.Translate(movimiento);
@@ -56,19 +87,24 @@ public class Animal : MonoBehaviour
             //1. Encontrar el objeto llamado "GameManager"
             //2. Encontrar el componente de ese objeto de tipo "GameManager"
             //3. Llamar la función CaptureAnimal()
-            GameObject gm = GameObject.Find("GameManager");
-            GameManager script = gm.GetComponent<GameManager>();
-            script.CaptureAnimal();
-
             
-                VidaAnimal = VidaAnimal - 1;
+
+
+            reducirvida();
                 if (VidaAnimal < 1)
                 {
                     Destroy(this.gameObject);
-                }
+                GameObject gm = GameObject.Find("GameManager");
+                GameManager script = gm.GetComponent<GameManager>();
+                script.CaptureAnimal();
+            }
                 
             
 
+        }
+        void reducirvida()
+        {
+            VidaAnimal = VidaAnimal - 1;
         }
     }
 }

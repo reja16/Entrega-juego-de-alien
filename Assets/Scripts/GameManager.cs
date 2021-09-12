@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject Felicitacion1;
     [SerializeField] int numAnimals;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         PauseGame();
     }
 
@@ -71,4 +73,7 @@ public class GameManager : MonoBehaviour
             gameOverMenu.SetActive(true);
         }
     }
+    
+    
+    
 }

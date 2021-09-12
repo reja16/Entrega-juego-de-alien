@@ -48,7 +48,7 @@ public class Spaceship : MonoBehaviour
             DispararRafaga();
 
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.C))
             cambiarBala = cambiarBala ? false : true;
 
     }

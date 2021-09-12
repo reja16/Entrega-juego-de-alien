@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3541116831771123552}
   - component: {fileID: 3541116831771123555}
   - component: {fileID: 3541116831771123558}
-  - component: {fileID: 3541116831771123559}
+  - component: {fileID: 787915596227850632}
   m_Layer: 6
   m_Name: cow
   m_TagString: Animal
@@ -123,7 +123,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
---- !u!114 &3541116831771123559
+--- !u!114 &787915596227850632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,9 +132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541116831771123554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4985d9be26f644918105213e630f9bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 68f1f06c77c30c54cb7a31a524b2307d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  movingRight: 1
+  movingRight: 0
   VidaAnimal: 1
+  tiempoAtras: 1.5
+  t: {fileID: 0}
+  tiempoLento: 0
